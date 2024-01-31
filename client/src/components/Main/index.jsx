@@ -11,7 +11,7 @@ const Main = () => {
     const fetchData = async () => {
       try {
         const result = await axios.get(process.env.REACT_APP_BASE_URL);
-        console.log(result.data);
+        // console.log(result.data);
         setBlogData(result.data);
       } catch (error) {
         console.error("Error fetching blog data:", error);
