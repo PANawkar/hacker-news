@@ -12,7 +12,12 @@ connection();
 
 // middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'https://hacker-news-vert.vercel.app', // specify the allowed origin
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // specify the allowed HTTP methods
+    credentials: true, // include credentials (cookies, HTTP authentication) in the CORS request
+    optionsSuccessStatus: 204, // set the status code for successful preflight requests
+  }));
 
 // routes
 app.use("/api/users", userRoutes);
